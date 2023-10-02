@@ -1,0 +1,22 @@
+
+SELECT MAX(price) AS max_price
+from meals
+WHERE calories > 500;
+
+SELECT AVG(calories) AS avg_calories
+from meals
+WHERE price > 15;
+
+SELECT *
+FROM meals
+HAVING price = (SELECT MAX(price) FROM meals);
+
+SELECT *
+FROM meals
+HAVING price = (SELECT AVG(price) FROM meals);
+
+SELECT *
+FROM meals
+HAVING price < (SELECT AVG(price) FROM meals) AND calories > 600;
+
+
